@@ -1,4 +1,5 @@
 javascript:(function(){
+	alert("kasu");
 	const users = {};
 	const chars = document.querySelectorAll("div #phelen_char_icon_box");
 	const m = [];
