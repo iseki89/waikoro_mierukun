@@ -1,8 +1,6 @@
 javascript:(function(){
-	alert("kasu");
 	const users = {};
 	const chars = document.querySelectorAll("div #phelen_char_icon_box");
-	const m = [];
 	const char_bet = [];
 	let sum = 0;
 	let bets = 0;	
@@ -99,8 +97,6 @@ javascript:(function(){
 		button.style.margin = "2px";
 		button.style.color = "#000";
 		button.style.cursor = "pointer";
-
-		console.log("kasu");
 
 		button.addEventListener("click", () => {
 			buttons.forEach((b) => {
