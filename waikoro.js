@@ -99,8 +99,6 @@ javascript:(function(){
 		button.style.color = "#000";
 		button.style.cursor = "pointer";
 
-		console.log("kasu");
-
 		button.addEventListener("click", () => {
 			buttons.forEach((b) => {
 				b.style.backgroundColor = "#C3C3C3";
