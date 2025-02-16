@@ -67,7 +67,7 @@ javascript:(function(){
 	for(i=0;i<chars.length;i++){
 		const disp = document.createElement("p");
 		const reward = Math.floor(sum/char_bet[i])*ratio+Math.floor(pot/char_bet[i]);
-		disp.innerHTML = "BET:" + char_bet[i] + "<br>賞金:一口" + reward + "枚";
+		disp.innerHTML = "BET:<b>" + char_bet[i] + "</b><br>賞金:一口<b>" + reward + "</b>枚";
 		chars[i].prepend(disp);
 		disp.classList.add("reward");
 
@@ -111,8 +111,8 @@ javascript:(function(){
 				if(users[name][i]!=0){
 					chars[i].style.outline = "solid 1px #000";
 					chars[i].style.outlineOffset = "-1px";
-					chars[i].style.backgroundColor = "rgba(176,196,222,0.25)";
-					user_reward_p.innerHTML = name + " BET:" + users[name][i] + "<br>賞金:" + user_reward + "枚";
+					chars[i].style.backgroundColor = "rgba(255,242,0,0.25)";
+					user_reward_p.innerHTML = name + " BET:<b>" + users[name][i] + "</b><br>賞金:<b>" + user_reward + "</b>枚";
 				}else {
 					chars[i].style.outline = "";
 					user_reward_p.innerHTML = "";
