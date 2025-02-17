@@ -1,7 +1,6 @@
 javascript:(function(){
 	const users = {};
 	const chars = document.querySelectorAll("div #phelen_char_icon_box");
-	const m = [];
 	const char_bet = [];
 	let sum = 0;
 	let bets = 0;	
@@ -65,8 +64,10 @@ javascript:(function(){
 	}else{ratio = 1;}
 
 	for(i=0;i<chars.length;i++){
+		let alone = 1;
+		if(char_bet[i]==1) alone = 1.2;
 		const disp = document.createElement("p");
-		const reward = Math.floor(sum/char_bet[i])*ratio+Math.floor(pot/char_bet[i]);
+		const reward = Math.floor(sum/char_bet[i])*ratio*alone+Math.floor(pot/char_bet[i]);
 		disp.innerHTML = "BET:<b>" + char_bet[i] + "</b><br>賞金:一口<b>" + reward + "</b>枚";
 		chars[i].prepend(disp);
 		disp.classList.add("reward");
@@ -105,18 +106,22 @@ javascript:(function(){
 			});
 			button.style.backgroundColor = "#7F7F7F";
 			for(i=0;i<chars.length;i++){
+				let alone = 1;
+				if(char_bet[i]==1) alone = 1.2;
 				const ur_p = chars[i].getElementsByClassName("user_reward");
 				const user_reward_p = ur_p[0];
-				const user_reward = users[name][i] * (Math.floor(sum/char_bet[i])*ratio + Math.floor(pot/char_bet[i]));
+				const user_reward = users[name][i] * (Math.floor(sum/char_bet[i])*ratio*alone + Math.floor(pot/char_bet[i]));
 				if(users[name][i]!=0){
-					chars[i].style.outline = "solid 1px #000";
-					chars[i].style.outlineOffset = "-1px";
+					// chars[i].style.outline = "solid 1px #000";
+					// chars[i].style.outlineOffset = "-1px";
 					chars[i].style.backgroundColor = "rgba(255,242,0,0.25)";
+					chars[i].style.boxShadow = "1px 1px 5px #000";
 					user_reward_p.innerHTML = name + " BET:<b>" + users[name][i] + "</b><br>賞金:<b>" + user_reward + "</b>枚";
 				}else {
-					chars[i].style.outline = "";
-					user_reward_p.innerHTML = "";
+					// chars[i].style.outline = "";
 					chars[i].style.backgroundColor = "";
+					chars[i].style.boxShadow = "";
+					user_reward_p.innerHTML = "";
 				}
 				const b = chars[i].getElementsByTagName("b");
 				for(j=0;j<b.length;j++){
